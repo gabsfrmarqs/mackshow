@@ -27,3 +27,5 @@ Histórico de execução dos comandos: \
 " \
    28  git push \
    29  history \
+
+![Print da AWS](https://github.com/gabsfrmarqs/mackshow/blob/main/lab01/firefox_DTA3zzLihH.png?raw=true)
