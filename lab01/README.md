@@ -29,3 +29,5 @@ Histórico de execução dos comandos: \
    29  history \
 
 ![Print da AWS](https://github.com/gabsfrmarqs/mackshow/blob/main/lab01/firefox_DTA3zzLihH.png?raw=true)
+
+Para executar o código basta abrir o executével no terminal linux: dentro da pasta onde se encontra o executável digite ./hello.
