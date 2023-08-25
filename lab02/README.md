@@ -1,22 +1,22 @@
-### EX1:\
+### EX1: 
 ![Imagem ex 1 executado](saidaexc1.png)
 
-### EX2:\
+### EX2:
 ![Imagem ex 2 executado](saidaexc2.png)]
 
-### EX3:\
+### EX3:
 ![Imagem ex 3 executado](saidaexc3.png)
 
-EX4:
+### EX4:
 ![Imagem ex 4 executado](saidaexc4.png)
 
-EX5:
+### EX5:
 ![Imagem ex 5 executado](saidaexc5.png)
 
-EX6:
+### EX6:
 ![Imagem ex 6 executado](saidaexc6.png)
 
-EX7:
+### EX7:
 ![Imagem ex 7 executado](saidaexc7.png)
 
 EX8:
