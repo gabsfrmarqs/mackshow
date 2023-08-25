@@ -1,0 +1,11 @@
+--2023-08-25 17:55:30--  https://i.imgur.com/tdWsgjS.png
+Resolving i.imgur.com (i.imgur.com)... 146.75.32.193
+Connecting to i.imgur.com (i.imgur.com)|146.75.32.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10429 (10K) [image/png]
+Saving to: ‘tdWsgjS.png’
+
+     0K ..........                                            100% 68.8M=0s
+
+2023-08-25 17:55:30 (68.8 MB/s) - ‘tdWsgjS.png’ saved [10429/10429]
+
