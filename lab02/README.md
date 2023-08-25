@@ -11,31 +11,31 @@
 ![Imagem ex 4 executado](saidaexc4.png)
 
 ### EX5:
-![Imagem ex 5 executado](Saidaexc5.png)
+![Imagem ex 5 executado](Saidaexc05.png)
 
 ### EX6:
 ![Imagem ex 6 executado](saidaexc6.png)
 
 ### EX7:
-![Imagem ex 7 executado](Saidaexc7.png)
+![Imagem ex 7 executado](Saidaexc07.png)
 
-EX8:
+### EX8:
 ![Imagem ex 8 executado](saidaexc8.png)
 
-EX9:
-![Imagem ex 9 executado](Saidaexc9.png)
+### EX9:
+![Imagem ex 9 executado](Saidaexc09.png)
 
-EX10:
+### EX10:
 ![Imagem ex 10 executado](saidaexc10.png)
 
-EX11:
+### EX11:
 ![Imagem ex 11 executado](Saidaexc11.png)
 
-EX12:
+### EX12:
 ![Imagem ex 12 executado](saidaexc12.png)
 
-EX13:
+### EX13:
 ![Imagem ex 13 executado](Saidaexc13.png)
 
-EX14:
+### EX14:
 ![Imagem ex 14 executado](saidaexc14.png)
