@@ -1,0 +1,11 @@
+--2023-08-25 17:52:39--  https://i.imgur.com/xbS0xgv.png
+Resolving i.imgur.com (i.imgur.com)... 146.75.36.193
+Connecting to i.imgur.com (i.imgur.com)|146.75.36.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8741 (8.5K) [image/png]
+Saving to: ‘xbS0xgv.png’
+
+     0K ........                                              100% 56.6M=0s
+
+2023-08-25 17:52:39 (56.6 MB/s) - ‘xbS0xgv.png’ saved [8741/8741]
+
