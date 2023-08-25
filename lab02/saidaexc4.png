@@ -1,0 +1,11 @@
+--2023-08-25 17:50:21--  https://i.imgur.com/0MpnFrM.png
+Resolving i.imgur.com (i.imgur.com)... 146.75.32.193
+Connecting to i.imgur.com (i.imgur.com)|146.75.32.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7888 (7.7K) [image/png]
+Saving to: ‘0MpnFrM.png’
+
+     0K .......                                               100% 79.0M=0s
+
+2023-08-25 17:50:22 (79.0 MB/s) - ‘0MpnFrM.png’ saved [7888/7888]
+
