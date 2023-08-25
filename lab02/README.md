@@ -1,3 +1,5 @@
+Os programas foram escritos em c++, para compilar, utilizamos o g++ no linux
+
 ### EX1: 
 ![Imagem ex 1 executado](saidaexc1.png)
 
