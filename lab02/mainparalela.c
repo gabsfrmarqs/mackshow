@@ -66,7 +66,6 @@ int main() {
     close(pipefd[0]); // fechando leitura do pipe
 
     printf("The total is = %d\n", i * resultadok);
-    printf("i = %d\nk = %d\nresulti=%d\nresultk=%d\n", i, k, i, resultadok);//tirar esse antes de enviar pro moodle
     
     int status;
     wait(&status); // esperando o filho acabar
