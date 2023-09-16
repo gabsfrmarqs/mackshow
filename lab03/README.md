@@ -12,4 +12,4 @@ Compilado via GCC na AWS
 Executado pelo comando "./lab"
 Os valores foram alterados na região de memória.
 
-![imagem][lab03.png]
+![imagem](lab03.png)
