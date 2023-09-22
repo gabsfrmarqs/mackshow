@@ -4,3 +4,7 @@ Considere o trecho de código fornecidopara resolver o problema da multiplicaç�
 Construa a versão serial e paralela e registre os tempos de execução e speedup no repositório do projeto.
 
 ![codigo do enunciado](enunciado.png)
+
+Codigo de compilacao: ```gcc pthread.c -o helloworld -Wall -lpthread```
+Execuçao: ```./helloworld <threads>```
+
