@@ -3,9 +3,9 @@
 Considere o trecho de código fornecido para resolver o problema da multiplicação matriz-vetor utilizando pthreads. 
 Construa a versão serial e paralela e registre os tempos de execução e speedup no repositório do projeto.
 
-<-- ![codigo do enunciado](enunciado.png) -->
-<-- Codigo de compilacao: ```gcc pthread.c -o helloworld -Wall -lpthread``` -->
-<-- Execuçao: ```./helloworld <threads>``` -->
+<!-- ![codigo do enunciado](enunciado.png) -->
+<!-- Codigo de compilacao: ```gcc pthread.c -o helloworld -Wall -lpthread``` -->
+<!-- Execuçao: ```./helloworld <threads>``` -->
 
 ## Máquina original
 ### lscpu
@@ -25,4 +25,4 @@ Construa a versão serial e paralela e registre os tempos de execução e speedu
 ![](imagens/lab04-AWS2vCPUSerial.png)
 
 ### Execução paralela
-![](imagens/lab04-AWS2vCPUlParalela.png)
+![](imagens/lab04-AWS2vCPUParalela.png)
