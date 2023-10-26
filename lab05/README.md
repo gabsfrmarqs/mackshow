@@ -40,6 +40,13 @@ executar arquivo paralelo: nome do executável, espaço, número de threads dese
 ### Execução paralela
 ![](imagens/1vcpuparalelo.png)
 
+## SpeedUp da Máquina 1vCPU
+pela Lei  de Amdahl Sp = T(1)/T(p), mas como a máquina só tem 1 core, claramente o speedup será menor que 1, demonstrando que houve perda de performance:
+
+sp = 0,000965726/0,003531666
+
+sp = 0,273447715 --> uma perda enorme de eficiência. Abaixo executaremos na máquina multicore para demonstrar a melhora na eficiência:
+
 ## Máquina 2vCPU
 ### lscpu
 ![](imagens/2vcpulscpu.png)
@@ -55,4 +62,4 @@ pela Lei  de Amdahl Sp = T(1)/T(p), e lembrando que na execução foram utilizad
 
 sp = 0,003925322/0.001986021
 
-sp = 1,976475576 --> muito próximo de 2 (número de cores da máquina),  o que demonstra um bom ganho de tempo em relação a versão serial quando executado em maquina multicore.
+sp = 1,976475576 --> muito próximo de 2 (número de cores da máquina),  o que demonstra um bom ganho de desempenho em relação a versão serial quando executado nesta maquina multicore.
