@@ -7,19 +7,27 @@ Os aquivos com nome lab05 são os pedidos na entrega, para compilá-los e execut
 
 compilar arquivo serial: 
 
+```
 gcc lab05serial.c -o lab05serial -lm
+```
 
 executar aquivo serial:
 
+```
 ./lab05serial
+```
 
 compilar arquivo paralelo:
 
+```
 gcc lab05Paralelo.c -fopenmp -o lab05Paralelo -lm
+```
 
 executar arquivo paralelo: nome do executável, espaço, número de threads desejadas:
 
+```
 ./lab05Paralelo 5
+```
 
 # Execuções na AWS
 ## Máquina 1vCPU
