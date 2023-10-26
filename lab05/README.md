@@ -21,4 +21,17 @@ executar arquivo paralelo: nome do executável, espaço, número de threads dese
 
 ./lab05Paralelo 5
 
+# Execuções na AWS
+## Máquina 1vCPU
+### Execução serial
+![](imagens/1vcpuserial.png)
 
+### Execução paralela
+![](imagens/1vcpuparalelo.png)
+
+## Máquina 2vCPU
+### Execução serial
+![](imagens/2vcpuserial.png)
+
+### Execução paralela
+![](imagens/2vcpuparalelo.png)
