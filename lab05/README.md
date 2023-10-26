@@ -49,3 +49,9 @@ executar arquivo paralelo: nome do executável, espaço, número de threads dese
 
 ### Execução paralela
 ![](imagens/2vcpuparalelo.png)
+
+## SpeedUp da Máquina 2vCPU
+pela Lei  de Amdahl Sp = T(1)/T(p), e lembrando que na execução foram utilizadas 2 Threads:
+sp = 0,003925322/0.001986021
+
+sp = 1,976475576 -> muito próximo de 2 (número de cores da máquina),  o que demonstra um bom ganho de tempo em relação a versão serial quando executado em maquina multicore.
