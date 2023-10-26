@@ -31,6 +31,9 @@ executar arquivo paralelo: nome do executável, espaço, número de threads dese
 
 # Execuções na AWS
 ## Máquina 1vCPU
+### lscpu
+![](imagens/1vcpulscpu.png)
+
 ### Execução serial
 ![](imagens/1vcpuserial.png)
 
@@ -38,6 +41,9 @@ executar arquivo paralelo: nome do executável, espaço, número de threads dese
 ![](imagens/1vcpuparalelo.png)
 
 ## Máquina 2vCPU
+### lscpu
+![](imagens/2vcpulscpu.png)
+
 ### Execução serial
 ![](imagens/2vcpuserial.png)
 
