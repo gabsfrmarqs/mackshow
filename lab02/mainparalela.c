@@ -22,7 +22,7 @@ int main() {
   int i, num, j, k = 1, l = 1;
   //printf("Enter the number: ");
   //scanf("%d", &num);
-  num = 10;
+  num = 12;
   j = num;
 
   int halfPoint = GetHalfPoint(num);
