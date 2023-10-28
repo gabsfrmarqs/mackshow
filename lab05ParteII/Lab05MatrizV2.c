@@ -5,7 +5,9 @@
 /*
 esta solução utiliza o reduction. com ele o OpenMP cria uma variável privada para cada thread e realiza a operação de redução nessa variável privada. Após a conclusão da região paralela, as variáveis privadas são combinadas automaticamente em uma única variável global.
 
-aqui, a cláusula #pragma omp parallel for reduction(+:y) foi usada após o loop externo para somar os valores parciais em y de todas as threads. Isso permite que cada thread realize sua própria soma parcial em uma variável privada e, no final, o OpenMP combina essas somas parciais para obter o resultado final em y. 
+Aqui, a linha #pragma omp parallel for reduction(+:y) foi usada após o loop externo para somar os valores parciais em y de todas as threads. Isso permite que cada thread realize sua própria soma parcial em uma variável privada e, no final, o OpenMP combina essas somas parciais para obter o resultado final em y. 
+
+Apesar de não ter região critica explicita, o reduction funciona como se criássemos uma região crítica naquela parte, já que não deixa mais de 1 thread acessá-la ao mesmo tempo.
 */
 
 // Número de linhas da matriz
@@ -30,15 +32,13 @@ double Local_Mat(int linha)
 {
   int j;
   double result = 0.0;
-  for (j = 0; j < n; j++) {
+  for (j = 0; j < n; j++) 
     result += A[linha][j] * x[j];
-  }
   return result;
 }
 
 int main(int argc, char *argv[]) 
 {
-
   int num_threads = atoi(argv[1]);
   omp_set_num_threads(num_threads);
 
@@ -48,15 +48,13 @@ int main(int argc, char *argv[])
     int i;
 
     #pragma omp for
-    for (i = 0; i < m; i++) {
-      if (i % num_threads == id) 
-        y[i] = Local_Mat(i);
-    }
-  }
+    for (i = 0; i < m; i++) 
+      y[i] = Local_Mat(i);
 
-  #pragma omp parallel for reduction(+:y)
-  for (int i = 0; i < m; i++) 
-    y[i] += 0;
+    #pragma omp for reduction(+:y)
+    for (i = 0; i < m; i++)
+      y[i] += 0;
+  }
 
   printf("Resultado (Vetor y):\n");
   for (int i = 0; i < m; i++)
