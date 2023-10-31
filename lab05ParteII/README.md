@@ -34,7 +34,7 @@ Valores obtidos com o comando ```perf stat ./Lab05TrapV2 <threads>```
 
 
 # Gráfico 
-![roshin yuukai](imagens/grafico.png)
+![roshin yuukai](imagens/graf.png)
 
 
 
