@@ -28,13 +28,13 @@ void fat(int n, mpz_t result) {
 
 void* threadFunction(void* arg) {
   ThreadData* data = (ThreadData*)arg;
-  mpf_init2(data->partialResult, 8192);
+  mpf_init2(data->partialResult, 16384);
 
   for (int i = data->start; i <= data->end; i++) {
     mpz_t fact;
     mpf_t stepResult;
     mpz_init(fact);
-    mpf_init2(stepResult, 8192);
+    mpf_init2(stepResult,16384);
 
     fat(i, fact);
     mpf_set_z(stepResult, fact);
@@ -54,11 +54,11 @@ void* threadFunction(void* arg) {
 
 void EulerTest(int precision, mpf_t result) {
   mpf_t stepResult;
-  mpf_init2(stepResult, 8192);  
+  mpf_init2(stepResult,16384);  
   mpz_t fact;
   mpz_init(fact);
 
-  mpf_init2(result, 8192);  
+  mpf_init2(result,16384);  
 
   pthread_t threads[MAX_THREADS];
   ThreadData threadData[MAX_THREADS];
