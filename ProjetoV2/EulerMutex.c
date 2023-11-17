@@ -101,15 +101,12 @@ int main() {
   mpf_t result;
   EulerTest(n, result);
 
-  gmp_printf("final result %.2000Ff\n", result);
+  gmp_printf("final result %.10000Ff\n", result);
 
-  // Save the result to a text file
   FILE *file = fopen("res.txt", "w");
   if (file != NULL) {
-    // Lock the mutex before accessing the shared result variable
     pthread_mutex_lock(&mutex);
-    gmp_fprintf(file, "%.2000Ff", result);
-    // Unlock the mutex after modifying the shared result variable
+    gmp_fprintf(file, "%.10000Ff", result);
     pthread_mutex_unlock(&mutex);
     fclose(file);
     printf("salvo em res.txt\n");

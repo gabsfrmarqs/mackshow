@@ -63,11 +63,11 @@ int main(int argc, char *argv[]) {
 
   EulerTest(n, result, num_threads);
 
-  gmp_printf("resultado final %.2000Ff\n", result);
+  gmp_printf("resultado final %.10000Ff\n", result);
 
   FILE *file = fopen("res.txt", "w");
   if (file != NULL) {
-    gmp_fprintf(file, "%.2000Ff", result);
+    gmp_fprintf(file, "%.10000Ff", result);
     fclose(file);
     printf("salvo em res.txt\n");
   } else {
