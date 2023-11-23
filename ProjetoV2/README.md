@@ -103,25 +103,15 @@ Speedup calculado para n = 100000:
 
 
 
-### Serial para n = 100000 (100 mil):
+### Serial/Paralelo para n = 100000 (100 mil):
+Rodando pela AWS, os códigos da primeira versão não foram capazez de obter uma saída após a conclusão de um timer externo de 30 minutos. A execução foi cancelada e os valores de speedup obtidos são em relação à execução com n = 20000.
 
-não obtido
-
-![](imagens/oldserial100m.png)
-
-
-### Paralelo para n = 100000 (100 mil):
-
-não obtido
+Imagem da execução interrompida com CTRL + C:
 
 ![](imagens/oldparalelo100m.png)
 
 Speedup calculado para n = 20000:
-``1,6931662628``
-
-Speedup calculado para n = 100000:
-``1,8147022252``
-
+``1,13166516788``
 
 # Estratégia de paralelismo
 No primeiro código, foi implementada a paralelização usando a biblioteca OpenMP. A abordagem central envolve dividir a carga de trabalho entre diversas threads por meio de um loop paralelo. Cada thread calcula um resultado parcial de forma independente, e a thread principal agrega esses resultados parciais para obter o resultado final. A seção crítica é empregada para garantir que múltiplas threads possam atualizar a variável de resultado compartilhada sem conflitos.
