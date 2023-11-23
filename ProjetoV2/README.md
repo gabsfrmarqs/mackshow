@@ -24,7 +24,7 @@ Segue o número obtido no site com 200 dígitos decimais:
 Para comparação devida, o número foi copiado inteiramente para o arquivo ``num.txt``. Uma função no código fará o trabalho de analisar quantas casas decimais obtidas no arquivo de saída (``res.txt``) correspondem ao valor em ``num.txt``.
 
 # Compilação do código
-O código deverá ser combipilado com diretrizes especiais devido ao uso do OpenMP e do GMP (biblioteca que permite a alocação de variáveis com valores elevados). Primeiro o GMP deverá ser instalado:
+O código deverá ser compilado com diretrizes especiais devido ao uso do OpenMP e do GMP (biblioteca que permite a alocação de variáveis com valores elevados). Primeiro o GMP deverá ser instalado:
 
 Instalação em Fedora/RHEL:
 ```sudo dnf install gmp-devel```
