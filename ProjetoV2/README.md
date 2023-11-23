@@ -43,7 +43,7 @@ O GMP aloca espaço para suas variáveis internamente. Floats no GMP utilizam um
 
 Fonte: ![Biblioteca GMP - Float Internals](https://gmplib.org/manual/Float-Internals#Float-Internals)
 
-# Qual foi o speedup da última versão?
+# Tempo e speedup da serial para paralela
 
 Serial para n = 20000 (20 mil)
 16,923343154s
@@ -61,7 +61,11 @@ Paralelo para n = 100000 (100 mil)
 261,597125601
 ![](imagens/paralelo100m.png)
 
-to-do
+Speedup calculado para n = 20000:
+``1,6931662628``
+
+Speedup calculado para n = 100000:
+``1,8147022252``
 
 # Estratégia de paralelismo
 
