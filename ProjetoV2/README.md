@@ -45,6 +45,22 @@ Fonte: ![Biblioteca GMP - Float Internals](https://gmplib.org/manual/Float-Inter
 
 # Qual foi o speedup da última versão?
 
+Serial para n = 20000 (20 mil)
+16,923343154s
+![](imagens/serial20m.png)
+
+Paralelo para n = 20000 (20 mil)
+9,995086440s
+![](imagens/paralelo20m.png)
+
+Serial para n = 100000 (100 mil)
+474,720885957
+![](imagens/serial100m.png)
+
+Paralelo para n = 100000 (100 mil)
+261,597125601
+![](imagens/paralelo100m.png)
+
 to-do
 
 # Estratégia de paralelismo
