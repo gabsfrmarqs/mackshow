@@ -52,7 +52,7 @@ Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompila
 
 ### Serial para n = 20000 (20 mil):
 
-16,923343154s
+16,923343154s (0,28min)
 
 ![](imagens/serial20m.png)
 
@@ -60,7 +60,7 @@ Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompila
 
 ### Paralelo para n = 20000 (20 mil):
 
-9,995086440s
+9,995086440s (0,16min)
 
 ![](imagens/paralelo20m.png)
 
@@ -68,7 +68,7 @@ Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompila
 
 ### Serial para n = 100000 (100 mil):
 
-474,720885957
+474,720885957 (7,90min)
 
 ![](imagens/serial100m.png)
 
@@ -76,7 +76,7 @@ Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompila
 
 ### Paralelo para n = 100000 (100 mil):
 
-261,597125601
+261,597125601 (4,35min)
 
 ![](imagens/paralelo100m.png)
 
@@ -87,6 +87,41 @@ Speedup calculado para n = 100000:
 ``1,8147022252``
 
 ## Dados da primeira versão para comparação:
+### Serial para n = 20000 (20 mil):
+
+241,937456717s (4,03min)
+
+![](imagens/oldserial20m.png)
+
+
+
+### Paralelo para n = 20000 (20 mil):
+
+213,788904690s (3,56min)
+
+![](imagens/oldparalelo20m.png)
+
+
+
+### Serial para n = 100000 (100 mil):
+
+não obtido
+
+![](imagens/oldserial100m.png)
+
+
+### Paralelo para n = 100000 (100 mil):
+
+não obtido
+
+![](imagens/oldparalelo100m.png)
+
+Speedup calculado para n = 20000:
+``1,6931662628``
+
+Speedup calculado para n = 100000:
+``1,8147022252``
+
 
 # Estratégia de paralelismo
 No primeiro código, foi implementada a paralelização usando a biblioteca OpenMP. A abordagem central envolve dividir a carga de trabalho entre diversas threads por meio de um loop paralelo. Cada thread calcula um resultado parcial de forma independente, e a thread principal agrega esses resultados parciais para obter o resultado final. A seção crítica é empregada para garantir que múltiplas threads possam atualizar a variável de resultado compartilhada sem conflitos.
