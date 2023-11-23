@@ -1,4 +1,4 @@
-# Projeto
+# Projeto Final
 
 Gabriel de França Marques - 42107490 \
 Renan Luiz Rodrigues Tagliaferro - 42105846
@@ -132,4 +132,10 @@ Em resumo, ambas as versões empregam técnicas de paralelização para distribu
 # Execução do código
 Tanto a execução do código Serial quanto ao Paralelo geram o mesmo número de casas precisas: 19725
 
+### Serial:
 
+![](imagens/execserial.png)
+
+### Paralelo:
+
+![](imagens/execparalelo.png)
