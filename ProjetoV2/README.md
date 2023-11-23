@@ -68,8 +68,20 @@ Speedup calculado para n = 100000:
 ``1,8147022252``
 
 # Estratégia de paralelismo
+No primeiro código, foi implementada a paralelização usando a biblioteca OpenMP. A abordagem central envolve dividir a carga de trabalho entre diversas threads por meio de um loop paralelo. Cada thread calcula um resultado parcial de forma independente, e a thread principal agrega esses resultados parciais para obter o resultado final. A seção crítica é empregada para garantir que múltiplas threads possam atualizar a variável de resultado compartilhada sem conflitos.
+Na segunda versão, uma estratégia diferente de paralelização foi adotada. Ao invés de utilizar OpenMP, foram utilizados pthreads (threads POSIX). Nessa abordagem, um conjunto de threads é criado, sendo cada uma responsável por uma faixa específica de cálculos. A tarefa é dividida entre as threads, e cada uma delas calcula um resultado parcial. Posteriormente, a thread principal espera pela conclusão de todas as threads e consolida os resultados parciais.
 
-to-do
+Algumas características distintivas na segunda versão incluem:
+
+- Conjunto de Threads: A segunda versão cria explicitamente um conjunto de threads usando pthread_create e aguarda pela conclusão dessas threads com pthread_join.
+
+- Função das Threads: Cada thread executa a função threadFunction, a qual calcula uma parte do resultado total. Essa função é responsável por uma faixa de cálculos especificada pelos campos start e end na estrutura ThreadData.
+
+- Inicialização da Precisão e do Resultado: As variáveis de precisão e resultado são inicializadas com uma precisão mais alta (65536 bits) para garantir maior exatidão nos cálculos.
+
+- Comparação com o Euler Real: O código inclui uma função (compareWithActualEuler) para comparar o resultado com um valor conhecido do número de Euler. Essa função lê dígitos de dois arquivos e os compara, fornecendo informações sobre possíveis discrepâncias.
+
+Em resumo, ambas as versões empregam técnicas de paralelização para distribuir a carga de trabalho entre múltiplas threads, mas utilizam mecanismos de paralelização diferentes (OpenMP na primeira versão, pthreads na segunda versão). A segunda versão também apresenta recursos adicionais, como um conjunto de threads, gerenciamento explícito de threads e uma função para a comparação do resultado com um valor conhecido.
 
 # Execução do código
 ### Serial
@@ -89,12 +101,4 @@ Saída res.txt:
 ![](imagens/paralelo_cat_res.txt.png)
 
 Tempo de execução com o comando ``perf stat -r 1 ./eparalelo 2``: 26.099513927 segundos
-
-
-# Speedup da Máquina rodando com 2 threads
-Pela Lei de Amdahl Sp = T(1)/T(p), e lembrando que na execução foram utilizadas 2 Threads:
-
-```sp = 31.989403809/26.099513927```
-
-sp = 1.225670481775023 bom ganho de desempenho em relação à versão serial quando executado em máquina multicore.
 
