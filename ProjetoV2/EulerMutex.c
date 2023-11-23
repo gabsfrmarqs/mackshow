@@ -93,13 +93,57 @@ void EulerTest(int precision, mpf_t result) {
   mpz_clear(fact);
 }
 
+void compareWithActualEuler(const char *actualEulerFile, const char *resultFile) {
+  FILE *actualEuler = fopen(actualEulerFile, "r");
+  FILE *result = fopen(resultFile, "r");
+
+  if (actualEuler == NULL || result == NULL) {
+    printf("Error opening files for comparison.\n");
+    return;
+  }
+
+  int digitCount = 0;
+  int correspondingDigits = 0;
+
+  while (1) {
+    int actualDigit = fgetc(actualEuler);
+    int resultDigit = fgetc(result);
+
+    if (actualDigit == EOF || resultDigit == EOF) {
+      break; // Reached the end of one of the files
+    }
+
+    if ('0' <= actualDigit && actualDigit <= '9' &&
+        '0' <= resultDigit && resultDigit <= '9') {
+      digitCount++;
+
+      if (actualDigit == resultDigit) {
+        correspondingDigits++;
+      } else {
+        printf("Mismatch found at digit %d.\n", digitCount);
+        break;
+      }
+    }
+  }
+
+  fclose(actualEuler);
+  fclose(result);
+
+  printf("Comparison complete.\n");
+  printf("Total digits compared: %d\n", digitCount);
+  printf("Corresponding digits: %d\n", correspondingDigits);
+}
+
 int main() {
-  int n = 0;
+  mpz_t n;
+  mpz_init(n);
   printf("num : ");
-  scanf("%d", &n);
+  //scanf("%d", &n);
+  gmp_scanf("%Zd", n);
+
 
   mpf_t result;
-  EulerTest(n, result);
+  EulerTest(mpz_get_ui(n), result);
 
   gmp_printf("final result %.10000Ff\n", result);
 
@@ -114,6 +158,9 @@ int main() {
     printf("erro ao salvar.\n");
   }
 
+  compareWithActualEuler("num.txt", "res.txt");
+
+  mpz_clear(n);
   mpf_clear(result);
 
   return 0;
