@@ -44,21 +44,36 @@ O GMP aloca espaço para suas variáveis internamente. Floats no GMP utilizam um
 Fonte: ![Biblioteca GMP - Float Internals](https://gmplib.org/manual/Float-Internals#Float-Internals)
 
 # Tempo e speedup da serial para paralela
+Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompilado``
 
-Serial para n = 20000 (20 mil)
+Serial para n = 20000 (20 mil):
+
 16,923343154s
+
 ![](imagens/serial20m.png)
 
-Paralelo para n = 20000 (20 mil)
+
+
+Paralelo para n = 20000 (20 mil):
+
 9,995086440s
+
 ![](imagens/paralelo20m.png)
 
-Serial para n = 100000 (100 mil)
+
+
+Serial para n = 100000 (100 mil):
+
 474,720885957
+
 ![](imagens/serial100m.png)
 
-Paralelo para n = 100000 (100 mil)
+
+
+Paralelo para n = 100000 (100 mil):
+
 261,597125601
+
 ![](imagens/paralelo100m.png)
 
 Speedup calculado para n = 20000:
@@ -84,21 +99,6 @@ Algumas características distintivas na segunda versão incluem:
 Em resumo, ambas as versões empregam técnicas de paralelização para distribuir a carga de trabalho entre múltiplas threads, mas utilizam mecanismos de paralelização diferentes (OpenMP na primeira versão, pthreads na segunda versão). A segunda versão também apresenta recursos adicionais, como um conjunto de threads, gerenciamento explícito de threads e uma função para a comparação do resultado com um valor conhecido.
 
 # Execução do código
-### Serial
-A execução do código serial gerou um número com 37 casas decimais de precisão:
-![](imagens/serial.png)
+Tanto a execução do código Serial quanto ao Paralelo geram o mesmo número de casas precisas: 19725
 
-Saída res.txt:
-![](imagens/serial_cat_res.txt.png)
-
-Tempo de execução com o comando ``perf stat -r 1 ./teste``: 31.989403809 segundos
-
-### Paralela
-A execução do código paralelo gerou um número com 17 casas de precisão:
-![](imagens/parelelo.png)
-
-Saída res.txt:
-![](imagens/paralelo_cat_res.txt.png)
-
-Tempo de execução com o comando ``perf stat -r 1 ./eparalelo 2``: 26.099513927 segundos
 
