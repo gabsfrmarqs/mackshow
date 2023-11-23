@@ -9,7 +9,7 @@ Este projeto visa desenvolver um algoritmo para estimar o valor de 'e' (número 
 Será desenvolvida uma solução para calcular 'e' considerando o maior valor possível para 'n' no denominador da fórmula. A solução usará pelo menos dois núcleos de processamento para computação paralela.
 
 ### Registro do valor de 'e': 
-O valor obtido para 'e' e valide o número de casas decimais corretas para avaliar a precisão da estimativa.
+O valor obtido para 'e' será validado com o número 'e' obtido externamente para avaliar a precisão da estimativa.
 
 ### Cálculo do Speedup: 
 Calcule e registre o speedup obtido ao migrar para a versão paralela do algoritmo. O speedup é a medida da melhoria de desempenho ao utilizar múltiplos núcleos de processamento.
@@ -20,6 +20,8 @@ Segue o número obtido no site com 200 dígitos decimais:
 ```
 2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746639193200305992181741359662904357290033429526059563073813232862794349076323382988075319525101901
 ```
+
+Para comparação devida, o número foi copiado inteiramente para o arquivo ``num.txt``. Uma função no código fará o trabalho de analisar quantas casas decimais obtidas no arquivo de saída (``res.txt``) correspondem ao valor em ``num.txt``.
 
 # Compilação do código
 O código deverá ser combipilado com diretrizes especiais devido ao uso do OpenMP e do GMP (biblioteca que permite a alocação de variáveis com valores elevados). Primeiro o GMP deverá ser instalado:
@@ -32,7 +34,9 @@ Com a instalação completa, os códigos que fazem uso do GMP poderão ser compi
 
 # Explicação arquivos
 ``EulerMutex.c`` melhor versão Paralela
+
 ``EulerOMP.c`` antiga versão Paralela
+
 ``EulerSerial.c`` melhor versão Serial
 
 # Como o problema foi resolvido?
@@ -46,7 +50,7 @@ Fonte: ![Biblioteca GMP - Float Internals](https://gmplib.org/manual/Float-Inter
 # Tempo e speedup da serial para paralela
 Os tempos de execução foram obtidos com o comando ``perf stat ./arquivoCompilado``
 
-Serial para n = 20000 (20 mil):
+### Serial para n = 20000 (20 mil):
 
 16,923343154s
 
@@ -54,7 +58,7 @@ Serial para n = 20000 (20 mil):
 
 
 
-Paralelo para n = 20000 (20 mil):
+### Paralelo para n = 20000 (20 mil):
 
 9,995086440s
 
@@ -62,7 +66,7 @@ Paralelo para n = 20000 (20 mil):
 
 
 
-Serial para n = 100000 (100 mil):
+### Serial para n = 100000 (100 mil):
 
 474,720885957
 
@@ -70,7 +74,7 @@ Serial para n = 100000 (100 mil):
 
 
 
-Paralelo para n = 100000 (100 mil):
+### Paralelo para n = 100000 (100 mil):
 
 261,597125601
 
@@ -81,6 +85,8 @@ Speedup calculado para n = 20000:
 
 Speedup calculado para n = 100000:
 ``1,8147022252``
+
+## Dados da primeira versão para comparação:
 
 # Estratégia de paralelismo
 No primeiro código, foi implementada a paralelização usando a biblioteca OpenMP. A abordagem central envolve dividir a carga de trabalho entre diversas threads por meio de um loop paralelo. Cada thread calcula um resultado parcial de forma independente, e a thread principal agrega esses resultados parciais para obter o resultado final. A seção crítica é empregada para garantir que múltiplas threads possam atualizar a variável de resultado compartilhada sem conflitos.
