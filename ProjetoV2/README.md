@@ -35,6 +35,22 @@ Com a instalação completa, os códigos que fazem uso do GMP poderão ser compi
 ``EulerOMP.c`` antiga versão Paralela
 ``EulerSerial.c`` melhor versão Serial
 
+# Como o problema foi resolvido?
+Para cálcular o número de Euler com múltiplos dígitos de precisão, foram utilizadas múltiplas threads para agilizar o processo, além de implementar mutex para evitar condições de corrida no código. Além disso, devido ao ``print`` da Linguagem C apresentar alguns problemas de precisão, programamos para que a saída seja feita num arquivo chamado ``res.txt```. Quanto aos números de alta precisão, foi utilizada a biblioteca GMP (GNU Multiple Precision Arithmetic Library), permitindo que seja possível trabalhar com números longos.
+
+### Resumidamente, como funciona o GMP?
+O GMP aloca espaço para suas variáveis internamente. Floats no GMP utilizam um expoente e uma mantissa. Pedaços de um número multi-precisão que podem ser armazenados num tipo WORD são denominados _limbs_ (membros), com o uso de _limbs_, é possível realizar lidar com situações de carry em cálculos.
+
+Fonte: ![Biblioteca GMP - Float Internals](https://gmplib.org/manual/Float-Internals#Float-Internals)
+
+# Qual foi o speedup da última versão?
+
+to-do
+
+# Estratégia de paralelismo
+
+to-do
+
 # Execução do código
 ### Serial
 A execução do código serial gerou um número com 37 casas decimais de precisão:
