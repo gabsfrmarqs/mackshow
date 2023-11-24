@@ -106,6 +106,8 @@ Imagem da execução interrompida com CTRL + C:
 Speedup calculado para n = 20000:
 ``1,13166516788``
 
+
+
 # Estratégia de paralelismo
 No primeiro código, foi implementada a paralelização usando a biblioteca OpenMP. A abordagem central envolve dividir a carga de trabalho entre diversas threads por meio de um loop paralelo. Cada thread calcula um resultado parcial de forma independente, e a thread principal agrega esses resultados parciais para obter o resultado final. A seção crítica é empregada para garantir que múltiplas threads possam atualizar a variável de resultado compartilhada sem conflitos.
 Na segunda versão, uma estratégia diferente de paralelização foi adotada. Foram utilizados pthreads (threads POSIX), em que um conjunto de threads é criado, sendo cada uma responsável por uma faixa específica de cálculos. A tarefa é dividida entre as threads, e cada uma delas calcula um resultado parcial. Posteriormente, a thread principal espera pela conclusão de todas as threads e consolida os resultados parciais.
