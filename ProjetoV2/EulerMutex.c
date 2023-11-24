@@ -31,7 +31,7 @@ void* threadFunction(void* arg) {
         mpf_init2(stepResult, 65536);  // Aumenta a precisão ainda mais
 
         // fat(i, fact);
-        mpz_fac_ui(fact, n);
+        mpz_fac_ui(fact, i);
 
 	// Converte o fatorial de fact (inteiro GMP) para ponto flutuante e armazena em stepResult
         mpf_set_z(stepResult, fact);
