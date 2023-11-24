@@ -132,16 +132,14 @@ void compareWithActualEuler(const char *actualEulerFile, const char *resultFile)
 int main() {
 
     // Declara o n de precisão
-    // mpz_t declara inteiro de precisão arbitrária
-    mpz_t n;
-    mpz_init(n);
+    int n = 0;
     printf("Número: ");
-    gmp_scanf("%Zd", n);
+    scanf("%d", &n);
 
     // Declara a variável de resultado
     // mpf_t declara float de precisão arbitrária
     mpf_t result;
-    EulerTest(mpz_get_ui(n), result);
+    EulerTest(n, result);
 
     // Printa o valor na tela com o próprio gmp
     gmp_printf("Resultado final %.100000Ff\n", result);
@@ -161,7 +159,6 @@ int main() {
 
 
     // Limpa a memória alocada
-    mpz_clear(n);
     mpf_clear(result);
 
     return 0;
