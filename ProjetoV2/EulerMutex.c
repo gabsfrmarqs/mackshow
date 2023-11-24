@@ -23,8 +23,10 @@ void* threadFunction(void* arg) {
     mpf_init2(data->partialResult, 65536);  // Aumenta a precisão ainda mais
 
     for (int i = data->start; i <= data->end; i++) {
+        // Declaração
         mpz_t fact;
         mpf_t stepResult;
+        // Alocação de memória e inicia as variáveis como 0
         mpz_init(fact);
         mpf_init2(stepResult, 65536);  // Aumenta a precisão ainda mais
 
