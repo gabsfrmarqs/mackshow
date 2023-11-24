@@ -33,7 +33,7 @@ Com a instalação completa, os códigos que fazem uso do GMP poderão ser compi
 ```gcc -fopenmp -lgmp input.c -o output```
 
 # Como o problema foi resolvido?
-Para cálcular o número de Euler com múltiplos dígitos de precisão, foram utilizadas múltiplas threads para agilizar o processo, além de implementar mutex para evitar condições de corrida no código. Além disso, devido ao ``print`` da Linguagem C apresentar alguns problemas de precisão, programamos para que a saída seja feita num arquivo chamado ``res.txt```. Quanto aos números de alta precisão, foi utilizada a biblioteca GMP (GNU Multiple Precision Arithmetic Library), permitindo que seja possível trabalhar com números longos.
+Para calcular o número de Euler com múltiplos dígitos de precisão, foram utilizadas múltiplas threads para agilizar o processo, além de implementar mutex para evitar condições de corrida no código. Além disso, devido ao ``print`` da Linguagem C apresentar alguns problemas de precisão, programamos para que a saída seja feita num arquivo chamado ``res.txt```. Quanto aos números de alta precisão, foi utilizada a biblioteca GMP (GNU Multiple Precision Arithmetic Library), permitindo que seja possível trabalhar com números longos.
 
 ### Resumidamente, como funciona o GMP?
 O GMP aloca espaço para suas variáveis internamente. Floats no GMP utilizam um expoente e uma mantissa. Pedaços de um número multi-precisão que podem ser armazenados num tipo WORD são denominados _limbs_ (membros), com o uso de _limbs_, é possível realizar lidar com situações de carry em cálculos.
@@ -97,7 +97,7 @@ Speedup calculado para n = 100000:
 
 
 ### Serial/Paralelo para n = 100000 (100 mil):
-Rodando pela AWS, os códigos da primeira versão não foram capazez de obter uma saída após a conclusão de um timer externo de 30 minutos. A execução foi cancelada e os valores de speedup obtidos são em relação à execução com n = 20000.
+Rodando pela AWS, os códigos da primeira versão não foram capazes de obter uma saída após a conclusão de um timer externo de 30 minutos. A execução foi cancelada e os valores de speedup obtidos são em relação à execução com n = 20000.
 
 Imagem da execução interrompida com CTRL + C:
 
