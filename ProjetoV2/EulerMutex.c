@@ -2,7 +2,7 @@
 #include <gmp.h>
 #include <pthread.h>
 
-#define MAX_THREADS 6
+#define MAX_THREADS 2
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -29,42 +29,56 @@ void* threadFunction(void* arg) {
         mpf_init2(stepResult, 65536);  // Aumenta a precisão ainda mais
 
         fat(i, fact);
+
+	// Converte o fatorial de fact (inteiro GMP) para ponto flutuante e armazena em stepResult
         mpf_set_z(stepResult, fact);
 
+	// Calcula o inverso do valor armazenado no stepResult e armazena o resultado na própria variável
         mpf_ui_div(stepResult, 1, stepResult);
 
+	// Soma o stepResult com o data->PartialResult e armazena em partialResult de novo
         mpf_add(data->partialResult, data->partialResult, stepResult);
 
+	// Desaloca
         mpf_clear(stepResult);
         mpz_clear(fact);
     }
 
+    // Encerra execução da thread
     pthread_exit(NULL);
 }
 
 // Função principal para calcular o resultado de Euler
 void EulerTest(int precision, mpf_t result) {
+    // Inicia a variável com a precisão de 65536 bits
     mpf_init2(result, 65536);  // Aumenta a precisão ainda mais
 
+    // Declara array de threads e array de structs ThreadData
     pthread_t threads[MAX_THREADS];
     ThreadData threadData[MAX_THREADS];
 
+    // A precisão será dividida pelo número de threads e será armazenada no ChunkSize. 
+    // Remainder calculará o resto da divisão. 
     int chunkSize = precision / MAX_THREADS;
     int remainder = precision % MAX_THREADS;
     int currentStart = 0;
 
+    // As estruturas ThreadData serão preenchidas com os intervalos que deverão ser processados por cada thread
     for (int i = 0; i < MAX_THREADS; i++) {
         threadData[i].start = currentStart;
         threadData[i].end = currentStart + chunkSize - 1 + (i < remainder ? 1 : 0);
         currentStart = threadData[i].end + 1;
 
+	// Cria a thread
         pthread_create(&threads[i], NULL, threadFunction, &threadData[i]);
     }
 
+    // Aguarda a conclusão da thread para prosseguir
     for (int i = 0; i < MAX_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
 
+    // Soma os resultados parciais e limpa a memória
     for (int i = 0; i < MAX_THREADS; i++) {
         mpf_add(result, result, threadData[i].partialResult);
         mpf_clear(threadData[i].partialResult);
@@ -114,16 +128,23 @@ void compareWithActualEuler(const char *actualEulerFile, const char *resultFile)
 }
 
 int main() {
+
+    // Declara o n de precisão
+    // mpz_t declara inteiro de precisão arbitrária
     mpz_t n;
     mpz_init(n);
     printf("Número: ");
     gmp_scanf("%Zd", n);
 
+    // Declara a variável de resultado
+    // mpf_t declara float de precisão arbitrária
     mpf_t result;
     EulerTest(mpz_get_ui(n), result);
 
+    // Printa o valor na tela com o próprio gmp
     gmp_printf("Resultado final %.100000Ff\n", result);
 
+    // Salva os dados no res.txt
     FILE *file = fopen("res.txt", "w");
     if (file != NULL) {
         gmp_fprintf(file, "%.100000Ff", result);
@@ -132,9 +153,12 @@ int main() {
     } else {
         printf("Erro ao salvar.\n");
     }
-
+	
+    // Chama o comparador
     compareWithActualEuler("num.txt", "res.txt");
 
+
+    // Limpa a memória alocada
     mpz_clear(n);
     mpf_clear(result);
 
